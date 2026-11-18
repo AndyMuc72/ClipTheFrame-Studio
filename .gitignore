@@ -1,0 +1,7 @@
+data/
+tools/
+NAMENSPRUEFUNG.md
+node_modules/
+*.log
+.env
+.env.*

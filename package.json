@@ -1,0 +1,14 @@
+{
+  "name": "cliptheframe-studio",
+  "version": "1.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check app.js && node --check encode.js && node --check title-layout.js",
+    "test": "node test.js",
+    "test:integration": "node integration-test.js",
+    "test:regression": "node regression-test.js",
+    "test:cancel": "node cancellation-test.js"
+  },
+  "description": "Einfach Videos schneiden, einen Titel einblenden und zwischen Videoformaten konvertieren. Lokal unter Windows, mit KI erstellt."
+}

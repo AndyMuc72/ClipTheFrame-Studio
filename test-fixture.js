@@ -1,0 +1,3 @@
+const fs=require('node:fs'),path=require('node:path'),{spawnSync}=require('node:child_process');
+function ensureFixture(){const dir=path.join(__dirname,'tools'),file=path.join(dir,'test-input.mp4');if(fs.existsSync(file))return file;fs.mkdirSync(dir,{recursive:true});const exe=path.join(dir,'ffmpeg.exe');const result=spawnSync(fs.existsSync(exe)?exe:'ffmpeg',['-hide_banner','-loglevel','error','-y','-f','lavfi','-i','color=c=blue:s=640x360:d=3','-f','lavfi','-i','sine=frequency=440:duration=3','-c:v','libx264','-c:a','aac','-shortest',file],{windowsHide:true,encoding:'utf8'});if(result.status!==0)throw Error(result.stderr||result.error?.message||'Testvideo konnte nicht erstellt werden. Bitte zuerst Starten.cmd ausführen.');return file;}
+module.exports={ensureFixture};
